@@ -30,10 +30,8 @@ import java.util.List;
 public class RankingActivity extends AppCompatActivity {
 
     ListView ranking;
-    String[] items;
-    ArrayAdapter<String> adapter;
     DownloadTask task;
-    JSONObject JsonData;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
