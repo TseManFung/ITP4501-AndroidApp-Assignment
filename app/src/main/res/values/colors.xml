@@ -39,5 +39,7 @@
     <color name="darkyellow">#FF808000</color>
     <color name="darkcyan">#FF008B8B</color>
     <color name="darkmagenta">#FF8B008B</color>
+    <color name="aliceblue">#FFF0F8FF</color>
+    <color name="cornflowerblue">#FF6495ED</color>
 
 </resources>

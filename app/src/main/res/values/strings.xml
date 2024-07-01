@@ -24,4 +24,12 @@
     <string name="easyMode">Easy Mode</string>
     <string name="off">Off</string>
     <string name="on">On</string>
+    <string name="gameTime">"Time: "</string>
+    <string name="sec">sec</string>
+    <string name="correct">" correct, "</string>
+    <string name="rank">"Rank "</string>
+    <string name="gameQuestion">"Question "</string>
+    <string name="answer">Your Answer</string>
+    <string name="submit">Submit</string>
+    <string name="rightarrow">→</string>
 </resources>

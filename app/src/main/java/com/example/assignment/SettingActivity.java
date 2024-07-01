@@ -25,6 +25,15 @@ public class SettingActivity extends AppCompatActivity {
             return insets;
         });
         SwEasyMode = findViewById(R.id.easyModeSwitch);
+        SharedPreferences settings = getSharedPreferences("assignment_setting", 0);
+        SwEasyMode.setChecked(settings.getBoolean("easyMode", false));
+        if(SwEasyMode.isChecked()){
+            SwEasyMode.setText(R.string.on);
+
+        }else{
+            SwEasyMode.setText(R.string.off);
+
+        }
     }
 
     public void clickEasyMode(View v){
