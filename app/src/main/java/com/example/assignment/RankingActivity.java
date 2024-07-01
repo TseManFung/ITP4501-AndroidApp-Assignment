@@ -114,7 +114,7 @@ public class RankingActivity extends AppCompatActivity {
             Collections.sort(rankingItems, new SortForRankingItem());
             List rankingsString = new ArrayList<String>(rankingItems.size());
             for (int i = 1; i <= rankingItems.size(); i++) {
-                rankingsString.add(R.string.rank+ i + ", " + rankingItems.get(i - 1).toString());
+                rankingsString.add(getString(R.string.rank)+ i + ", " + rankingItems.get(i - 1).toString());
             }
 
             ArrayAdapter<RankingItem> adapter = new ArrayAdapter<>(this, R.layout.list_item,R.id.text_view, rankingsString);
@@ -150,7 +150,7 @@ public class RankingActivity extends AppCompatActivity {
 
         @Override
         public String toString() {
-            return name + ", " + correct + R.string.correct+ time + R.string.sec;
+            return name + ", " + correct + getString(R.string.correct)+ time +getString( R.string.sec);
         }
     }
 

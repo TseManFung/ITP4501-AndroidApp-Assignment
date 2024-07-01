@@ -32,4 +32,12 @@
     <string name="answer">Your Answer</string>
     <string name="submit">Submit</string>
     <string name="rightarrow">→</string>
+    <string name="nextQuestion">Next Question</string>
+    <string name="Continue">Continue</string>
+    <string name="Correct">Correct!</string>
+    <string name="Wrong">Wrong!</string>
+    <string name="Answeris">"Answer is "</string>
+    <string name="PleaseEnterAnswer">Please enter answer</string>
+    <string name="AnswerMissing">Answer missing</string>
+
 </resources>
