@@ -39,5 +39,8 @@
     <string name="Answeris">"Answer is "</string>
     <string name="PleaseEnterAnswer">Please enter answer</string>
     <string name="AnswerMissing">Answer missing</string>
+    <string name="finish">Finish!</string>
+    <string name="Correctis">"Correct: "</string>
+    <string name="Wrongis">", Wrong: "</string>
 
 </resources>

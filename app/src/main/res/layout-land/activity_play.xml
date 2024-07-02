@@ -168,6 +168,18 @@
                 android:textSize="25sp"
                 ></Button>
         </LinearLayout>
+        <Button
+            android:id="@+id/Continue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginVertical="5dp"
+            android:fontFamily="@font/boutiquebitmap9x9"
+            android:onClick="restartGame"
+            android:text="@string/Continue"
+            android:textSize="25sp"
+            android:visibility="gone"
+            ></Button>
     </LinearLayout>
 
 

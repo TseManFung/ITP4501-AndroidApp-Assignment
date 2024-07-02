@@ -29,13 +29,13 @@ public class PlayActivity extends AppCompatActivity {
     LinearLayout llNormalMode,llFeedBack;
     TableLayout tlMCMode;
     EditText etAnswer;
-    Button btnSubmit, btnMC1, btnMC2, btnMC3, btnMC4, btnNext;
+    Button btnSubmit, btnMC1, btnMC2, btnMC3, btnMC4, btnNext,btnContinue;
     boolean easyMode,timerOn = false;
 
     final String[] operator = {"+", "-", "*", "/"};
     int correctAnswer, questionNo = 0, correctNo = 0, wrongNo = 0,timeCount = 0;
 
-    Timer timer = new Timer();
+    Timer timer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,10 +68,27 @@ public class PlayActivity extends AppCompatActivity {
         tvCorrectAnswer = findViewById(R.id.correctAnswer);
         llFeedBack = findViewById(R.id.feedBack);
         timerOn = true;
+        btnContinue = findViewById(R.id.Continue);
 
         tvTimer.setText(getString(R.string.gameTime)+ timeCount +" "+ getString(R.string.sec));
 
         startGame();
+
+
+    }
+
+    private void restartGame(View v){
+        startGame();
+    }
+
+    //startGame
+    private void startGame() {
+        btnContinue.setVisibility(View.GONE);
+        timerOn = false;
+        questionNo =  correctNo =  wrongNo = timeCount = 0;
+
+        nextQuestion();
+        timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
@@ -89,23 +106,17 @@ public class PlayActivity extends AppCompatActivity {
 
     }
 
-
-    //startGame
-    private void startGame() {
-        //startGame
-
-        nextQuestion();
-
-    }
-
     //not done
     private void endGame() {
         //endGame
+        btnContinue.setVisibility(View.VISIBLE);
+
         hideAnswerArea();
-        tvCorrectWrong.setText("Correct: " + correctNo + ", Wrong: " + wrongNo + " !");
-        tvCorrectAnswer.setText("Correct Answer: " + correctNo);
-        tvCorrectAnswer.setVisibility(View.VISIBLE);
-        btnNext.setVisibility(View.VISIBLE);
+        llFeedBack.setVisibility(View.GONE);
+        tvQuestion.setText(tvTimer.getText());
+        tvTimer.setText(R.string.finish);
+        tvGameQuestionNo.setText(getString(R.string.Correctis)+correctNo+getString(R.string.Wrongis)+wrongNo+"!");
+
     }
 
     //nextQuestion
