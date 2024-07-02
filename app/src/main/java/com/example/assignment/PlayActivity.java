@@ -77,7 +77,7 @@ public class PlayActivity extends AppCompatActivity {
 
     }
 
-    private void restartGame(View v){
+    public void restartGame(View v){
         startGame();
     }
 
@@ -109,6 +109,8 @@ public class PlayActivity extends AppCompatActivity {
     //not done
     private void endGame() {
         //endGame
+        timer.cancel();
+        timer.purge();
         btnContinue.setVisibility(View.VISIBLE);
 
         hideAnswerArea();
