@@ -107,7 +107,7 @@
                 android:fontFamily="@font/boutiquebitmap9x9"
                 android:onClick="clickRecord"
                 android:padding="10dp"
-                android:text="Your Records"
+                android:text="@string/YourRecords"
                 android:textColor="@color/white"
                 android:textSize="30dp"
                 app:backgroundTint="@color/blue"></Button>

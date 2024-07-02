@@ -42,5 +42,9 @@
     <string name="finish">Finish!</string>
     <string name="Correctis">"Correct: "</string>
     <string name="Wrongis">", Wrong: "</string>
+    <string name="corrects">" corrects"</string>
+    <string name="YourRecords">Your Records</string>
+    <string name="YourRecordsEasy">Your Records\n(Easy Mode)</string>
+    <string name="YourRecordsNormal">Your Records\n(Normal Mode)</string>
 
 </resources>

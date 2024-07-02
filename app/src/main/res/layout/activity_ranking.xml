@@ -34,14 +34,13 @@
             android:textColor="@color/gray"
             android:textSize="50dp"
             android:textStyle="bold"
-            android:paddingVertical="20dp"></TextView>
+            android:paddingVertical="20dp" />
 
         <ListView
             android:id="@+id/rankingList"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:contextClickable="false"
-            ></ListView>
+            android:contextClickable="false" />
 
 
 

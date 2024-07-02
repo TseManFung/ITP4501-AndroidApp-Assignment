@@ -18,22 +18,28 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Collections;
+import java.util.Locale;
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class PlayActivity extends AppCompatActivity {
     TextView tvTimer, tvGameQuestionNo, tvQuestion, tvCorrectWrong, tvCorrectAnswer;
-    LinearLayout llNormalMode,llFeedBack;
+    LinearLayout llNormalMode, llFeedBack;
     TableLayout tlMCMode;
     EditText etAnswer;
-    Button btnSubmit, btnMC1, btnMC2, btnMC3, btnMC4, btnNext,btnContinue;
-    boolean easyMode,timerOn = false;
+    Button btnSubmit, btnMC1, btnMC2, btnMC3, btnMC4, btnNext, btnContinue;
+    boolean easyMode, timerOn = false;
 
     final String[] operator = {"+", "-", "*", "/"};
-    int correctAnswer, questionNo = 0, correctNo = 0, wrongNo = 0,timeCount = 0;
+    int correctAnswer, questionNo = 0, correctNo = 0, wrongNo = 0, timeCount = 0;
 
     Timer timer;
 
@@ -70,22 +76,23 @@ public class PlayActivity extends AppCompatActivity {
         timerOn = true;
         btnContinue = findViewById(R.id.Continue);
 
-        tvTimer.setText(getString(R.string.gameTime)+ timeCount +" "+ getString(R.string.sec));
+        tvTimer.setText(getString(R.string.gameTime) + timeCount + " " + getString(R.string.sec));
 
         startGame();
 
 
     }
 
-    public void restartGame(View v){
+    public void restartGame(View v) {
         startGame();
+
     }
 
     //startGame
     private void startGame() {
         btnContinue.setVisibility(View.GONE);
         timerOn = false;
-        questionNo =  correctNo =  wrongNo = timeCount = 0;
+        questionNo = correctNo = wrongNo = timeCount = 0;
 
         nextQuestion();
         timer = new Timer();
@@ -97,7 +104,7 @@ public class PlayActivity extends AppCompatActivity {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            tvTimer.setText(getString(R.string.gameTime)+ timeCount +" "+ getString(R.string.sec));
+                            tvTimer.setText(getString(R.string.gameTime) + timeCount + " " + getString(R.string.sec));
                         }
                     });
                 }
@@ -117,7 +124,16 @@ public class PlayActivity extends AppCompatActivity {
         llFeedBack.setVisibility(View.GONE);
         tvQuestion.setText(tvTimer.getText());
         tvTimer.setText(R.string.finish);
-        tvGameQuestionNo.setText(getString(R.string.Correctis)+correctNo+getString(R.string.Wrongis)+wrongNo+"!");
+        tvGameQuestionNo.setText(getString(R.string.Correctis) + correctNo + getString(R.string.Wrongis) + wrongNo + "!");
+        // today , now time, duration, correct
+
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()),
+                TimeFormat = new SimpleDateFormat("HH:mm", Locale.getDefault());
+        String currentDate = dateFormat.format(calendar.getTime()),
+                currentTime = TimeFormat.format(calendar.getTime());
+        Log.d("DB", currentDate + " " + currentTime + " " + timeCount + " " + correctNo);
+        MainActivity.insertData(currentDate, currentTime, timeCount, correctNo, easyMode ? 1 : 0);
 
     }
 
@@ -125,6 +141,7 @@ public class PlayActivity extends AppCompatActivity {
     private void nextQuestion() {
         llFeedBack.setVisibility(View.GONE);
         if (questionNo < 10) {
+            etAnswer.setText("");
             questionNo++;
             tvGameQuestionNo.setText(getString(R.string.gameQuestion) + questionNo);
             genQuestion();
@@ -169,10 +186,11 @@ public class PlayActivity extends AppCompatActivity {
         } else {
             wrongNo++;
             tvCorrectWrong.setText(R.string.Wrong);
-            tvCorrectAnswer.setText(getString(R.string.Answeris)+ correctAnswer+" !");
+            tvCorrectAnswer.setText(getString(R.string.Answeris) + correctAnswer + " !");
         }
         llFeedBack.setVisibility(View.VISIBLE);
     }
+
     //submitTextAnswer
     private void alert(String s) {
         AlertDialog.Builder alertDialog =
@@ -189,6 +207,7 @@ public class PlayActivity extends AppCompatActivity {
         alertDialog.setCancelable(true);
         alertDialog.show();
     }
+
     public void submitTextAnswer(View v) {
         if (etAnswer.getText().toString().isEmpty()) {
             alert(getString(R.string.PleaseEnterAnswer));
@@ -240,7 +259,7 @@ public class PlayActivity extends AppCompatActivity {
                 correctAnswer = a * b;
                 break;
             case "/":
-                a = ((int) (Math.random() * 50)) + 1;
+                a = ((int) (Math.random() * 25)) + 1;
                 b = ((int) (Math.random() * ((int) (100 / a)))) + 1;
                 correctAnswer = a;
                 a *= b;
