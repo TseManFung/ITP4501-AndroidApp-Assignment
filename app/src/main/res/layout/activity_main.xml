@@ -137,7 +137,7 @@
                 android:fontFamily="@font/boutiquebitmap9x9"
                 android:onClick="clickClose"
                 android:padding="10dp"
-                android:text="Close"
+                android:text="@string/close"
                 android:textColor="@color/white"
                 android:textSize="30dp"
                 app:backgroundTint="@color/blue"></Button>

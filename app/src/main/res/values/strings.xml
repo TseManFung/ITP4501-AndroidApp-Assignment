@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Assignment</string>
+    <string name="app_name">"Mathematic Game"</string>
     // Mathematic\nGame
     <string name="title">Mathematic\nGame</string>
     <string name="btnPlay">Play</string>
@@ -41,10 +41,11 @@
     <string name="AnswerMissing">Answer missing</string>
     <string name="finish">Finish!</string>
     <string name="Correctis">"Correct: "</string>
-    <string name="Wrongis">", Wrong: "</string>
+    <string name="Wrongis">"\nWrong: "</string>
     <string name="corrects">" corrects"</string>
     <string name="YourRecords">Your Records</string>
     <string name="YourRecordsEasy">Your Records\n(Easy Mode)</string>
     <string name="YourRecordsNormal">Your Records\n(Normal Mode)</string>
+    <string name="close">Close</string>
 
 </resources>

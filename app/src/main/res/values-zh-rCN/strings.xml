@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">数学游戏</string>
+    <string name="title">数学游戏</string>
+    <string name="btnPlay">开始玩</string>
+    <string name="GameRanking">游戏排行</string>
+    <string name="title_activity_settings">设置</string>
+    <string name="attachment_summary_off">只在手动请求时下载附件</string>
+    <string name="btnSettings">设置</string>
+    <string name="easyMode">简单模式</string>
+    <string name="off">关闭</string>
+    <string name="on">开启</string>
+    <string name="gameTime">"时间: "</string>
+    <string name="sec">秒</string>
+    <string name="correct">" 条正确, "</string>
+    <string name="rank">"排名 "</string>
+    <string name="gameQuestion">"问题 "</string>
+    <string name="answer">你的答案</string>
+    <string name="submit">提交</string>
+    <string name="rightarrow">→</string>
+    <string name="nextQuestion">下一题</string>
+    <string name="Continue">继续</string>
+    <string name="Correct">正确!</string>
+    <string name="Wrong">错误!</string>
+    <string name="Answeris">"正确答案是 "</string>
+    <string name="PleaseEnterAnswer">请输入答案</string>
+    <string name="AnswerMissing">缺少答案</string>
+    <string name="finish">完成!</string>
+    <string name="Correctis">"正确数量: "</string>
+    <string name="Wrongis">"\n错误数量: "</string>
+    <string name="corrects">" 条正确"</string>
+    <string name="YourRecords">你的记录</string>
+    <string name="YourRecordsEasy">你的记录\n(简单模式)</string>
+    <string name="YourRecordsNormal">你的记录\n(普通模式)</string>
+    <string name="close">关闭</string>
+</resources>
