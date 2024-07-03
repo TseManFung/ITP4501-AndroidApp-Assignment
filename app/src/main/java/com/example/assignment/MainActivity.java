@@ -1,16 +1,20 @@
 package com.example.assignment;
 
 import android.animation.ValueAnimator;
+import android.app.Service;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.graphics.Insets;
@@ -59,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
         });
         animator.start();
         createDB();
+
     }
 
 
@@ -111,7 +116,6 @@ public class MainActivity extends AppCompatActivity {
     public static void insertData(String date, String time, int duration, int correctCount, int easyMode) {
         db.execSQL("INSERT INTO GamesLog (gameID,playDate,playTime,duration,correctCount,easyMode) values (NULL,'" + date + "', '" + time + "', '" + duration + "', " + correctCount + "," + easyMode + "); ");
     }
-
 
 
 }

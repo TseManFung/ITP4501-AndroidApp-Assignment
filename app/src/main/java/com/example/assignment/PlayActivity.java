@@ -3,6 +3,7 @@ package com.example.assignment;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -83,6 +84,32 @@ public class PlayActivity extends AppCompatActivity {
 
     }
 
+    MediaPlayer mediaPlayer = null;
+
+    public void setMedia() {
+        mediaPlayer = MediaPlayer.create(this, R.raw.baost);
+    }
+
+    public void startMedia() {
+        mediaPlayer.start();
+    }
+
+    public void stopMedia() {
+        mediaPlayer.stop();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        setMedia();
+        startMedia();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        stopMedia();
+    }
     public void restartGame(View v) {
         startGame();
 

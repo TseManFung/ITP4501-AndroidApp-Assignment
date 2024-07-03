@@ -50,7 +50,7 @@ public class RecordActivity extends AppCompatActivity {
         ArrayList<String> data = new ArrayList<String>();
         try {
 
-            Cursor c = db.rawQuery("SELECT * FROM GamesLog Where easyMode = " + (easyMode ? 1 : 0), null);
+            Cursor c = db.rawQuery("SELECT * FROM GamesLog Where easyMode = " + (easyMode ? 1 : 0) + " ORDER BY correctCount DESC ,duration", null);
             if (c.moveToFirst()) {
                 do {
                     data.add(c.getString(1) + ", " + c.getString(2) + ", " + c.getInt(4) + getString(R.string.corrects) + ", " + c.getString(3) + getString(R.string.sec));
